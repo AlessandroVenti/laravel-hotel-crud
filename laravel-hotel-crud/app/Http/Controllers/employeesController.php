@@ -23,5 +23,23 @@ class employeesController extends Controller
         $employee -> delete();
         return redirect() -> route('home');
     }
+
+    public function editFunction($id) {
+        $employee = Employee::findOrFail($id);
+        return view('pages.edit', compact('employee'));
+    }
+
+    public function updateFunction(Request $request, $id) {
+        $validated = $request -> validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'role' => 'required',
+            'ral' => 'required',
+        ]);
+        $employee = Employee::findOrFail($id);
+        $employee -> update($validated);
+        return redirect() -> route('employeeDetails', $employee -> id);
+
+    }
 }   
 

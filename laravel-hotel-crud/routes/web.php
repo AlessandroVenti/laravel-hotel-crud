@@ -22,3 +22,7 @@ Route::get('home', 'employeesController@homeFunction')->name('home');
 Route::get('/employeeDetails/{id}', 'employeesController@employeeDetailsFunction')->name('employeeDetails');
 
 Route::get('destroy/{id}', 'employeesController@deleteFunction')->name('destroy');
+
+Route::get('/edit/employee/{id}', 'employeesController@editFunction')->name('edit');
+
+Route::post('/update/employee/{id}', 'employeesController@updateFunction')->name('update');
