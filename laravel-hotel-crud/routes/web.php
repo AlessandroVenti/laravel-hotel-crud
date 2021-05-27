@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', 'employeesController@homeFunction');
+Route::get('home', 'employeesController@homeFunction')->name('home');
 
 Route::get('/employeeDetails/{id}', 'employeesController@employeeDetailsFunction')->name('employeeDetails');
+
+Route::get('destroy/{id}', 'employeesController@deleteFunction')->name('destroy');

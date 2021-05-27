@@ -11,10 +11,17 @@ class employeesController extends Controller
         $employees = Employee::all();
         return view('pages.home', compact('employees'));
     }
-    
+
 
     public function employeeDetailsFunction($id) {
         $employee = Employee::findOrFail($id);
         return view('pages.employeeDetails', compact('employee'));
     }
-}
+
+    public function deleteFunction($id) {
+        $employee = Employee::findOrFail($id);
+        $employee -> delete();
+        return redirect() -> route('home');
+    }
+}   
+
