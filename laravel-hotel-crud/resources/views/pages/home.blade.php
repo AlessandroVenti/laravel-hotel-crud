@@ -1,6 +1,17 @@
 @extends('layouts.main-layout')
 @section('content')
      <main>
-          <h1>i'm the main</h1>
+          <ul class="homeLayout">
+               @foreach ($employees as $employee)
+                    <li>
+                         <a href="{{ route('employeeDetails', $employee -> id) }}">
+                              <strong>{{ $employee -> firstname }}  {{ $employee -> lastname }}</strong>
+                         </a>
+                         <a href="">
+                              &#10060;
+                         </a>
+                    </li>
+               @endforeach
+          </ul>
      </main>
 @endsection
