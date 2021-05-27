@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table -> string('firstname', 128);
             $table -> string('lastname', 128);
             $table -> integer('role');
-            $table -> integer('ral') -> nullable();
+            $table -> integer('ral');
             $table->timestamps();
         });
     }

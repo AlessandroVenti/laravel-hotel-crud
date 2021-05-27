@@ -34,10 +34,11 @@ class employeesController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'role' => 'required',
-            'ral' => 'required',
+            'ral' => 'nullable',
         ]);
         $employee = Employee::findOrFail($id);
         $employee -> update($validated);
+        dd($id, $employee);
         return redirect() -> route('employeeDetails', $employee -> id);
 
     }
